@@ -24,13 +24,7 @@ class BurgerBuilder extends Component {
 
   componentDidMount() {
     console.log(this.props);
-    // axios.get( 'https://react-my-burger.firebaseio.com/ingredients.json' )
-    //     .then( response => {
-    //         this.setState( { ingredients: response.data } );
-    //     } )
-    //     .catch( error => {
-    //         this.setState( { error: true } );
-    //     } );
+    this.props.onInitIngredients();
   }
 
   updatePurchaseState(ingredients) {
@@ -64,7 +58,7 @@ class BurgerBuilder extends Component {
       disabledInfo[key] = disabledInfo[key] <= 0;
     }
     let orderSummary = null;
-    let burger = this.state.error ? (
+    let burger = this.props.error ? (
       <p>Ingredients can't be loaded!</p>
     ) : (
       <Spinner />
@@ -115,6 +109,7 @@ const mapStateToProps = (state) => {
   return {
     ings: state.ingredients,
     price: state.totalPrice,
+    error: state.error,
   };
 };
 
@@ -124,6 +119,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(BurgerBuilderActions.addIngredient(ingName)),
     onIngredientRemoved: (ingName) =>
       dispatch(BurgerBuilderActions.removeIngredient(ingName)),
+    onInitIngredients: () => dispatch(BurgerBuilderActions.initIngredients()),
   };
 };
 

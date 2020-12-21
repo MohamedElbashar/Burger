@@ -28,10 +28,10 @@ export const fetchIngredientFailed = () => {
     type: actionTypes.FETCH_INGREDIENT_FAILED,
   };
 };
-export const initIngredients = (ingredients) => {
+export const initIngredients = () => {
   return (dispatch) => {
     axios
-      .get("https://react-my-burger.firebaseio.com/ingredients.json")
+      .get("https://react-my-burger.firebaseio.com/ingredients")
       .then((response) => {
         dispatch(setIngredients(response.data));
       })
