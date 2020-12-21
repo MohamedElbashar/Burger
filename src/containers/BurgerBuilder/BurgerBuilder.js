@@ -10,9 +10,8 @@ import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
+import * as burgerBuilderActions from "../../store/actions/index";
 import axios from "../../axios-orders";
-import * as BurgerBuilderActions from "../../store/actions/index";
-
 class BurgerBuilder extends Component {
   // constructor(props) {
   //     super(props);
@@ -87,9 +86,6 @@ class BurgerBuilder extends Component {
         />
       );
     }
-    if (this.state.loading) {
-      orderSummary = <Spinner />;
-    }
     // {salad: true, meat: false, ...}
     return (
       <Aux>
@@ -116,10 +112,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onIngredientAdded: (ingName) =>
-      dispatch(BurgerBuilderActions.addIngredient(ingName)),
+      dispatch(burgerBuilderActions.addIngredient(ingName)),
     onIngredientRemoved: (ingName) =>
-      dispatch(BurgerBuilderActions.removeIngredient(ingName)),
-    onInitIngredients: () => dispatch(BurgerBuilderActions.initIngredients()),
+      dispatch(burgerBuilderActions.removeIngredient(ingName)),
+    onInitIngredients: () => dispatch(burgerBuilderActions.initIngredients()),
   };
 };
 
