@@ -15,3 +15,5 @@ export const removeIngredient = (name) => {
     type: actionTypes.REMOVE_INGREDIENT,
   };
 };
+
+export const initIngredients = () => {};
