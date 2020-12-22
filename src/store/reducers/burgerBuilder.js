@@ -44,6 +44,7 @@ const reducer = (state = initialState, action) => {
           meat: action.ingredients.meat,
         },
         error: false,
+        totalPrice: 4,
       };
     case actionTypes.PURCHASE_BURGER_FAIL:
       return {
