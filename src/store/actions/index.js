@@ -1,8 +1,9 @@
 /** @format */
+import { purchaseInit } from "./order";
 
 export {
   addIngredient,
   removeIngredient,
   initIngredients,
 } from "./burgerBuilder";
-export { purchaseBurger as purchaseBurger } from "./order";
+export { purchaseBurger, purchaseInit } from "./order";
