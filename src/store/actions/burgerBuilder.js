@@ -1,6 +1,6 @@
 /** @format */
 
-import * as actionTypes from "./actionTypes";
+import * as actionTypes from "./actionsTypes";
 import axios from "../../axios-orders";
 
 export const addIngredient = (name) => {
@@ -26,7 +26,7 @@ export const setIngredients = (ingredients) => {
 
 export const fetchIngredientsFailed = () => {
   return {
-    type: actionTypes.FETCH_INGREDIENTS_FAILED,
+    type: actionTypes.FETCH_INGREDIENT_FAILED,
   };
 };
 

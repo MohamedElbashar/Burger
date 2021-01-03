@@ -107,12 +107,12 @@ class ContactData extends Component {
         formElementIdentifier
       ].value;
     }
-    const order = {
-      ingredients: this.props.ings,
-      price: this.props.price,
-      orderData: formData,
-    };
-    this.props.onOrderBurger;
+    // const order = {
+    //   ingredients: this.props.ings,
+    //   price: this.props.price,
+    //   orderData: formData,
+    // };
+    // this.props.onOrderBurger;
   };
 
   checkValidity(value, rules) {
@@ -220,4 +220,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps)(withErrorHandler(ContactData, axios));
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withErrorHandler(ContactData, axios));

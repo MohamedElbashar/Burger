@@ -51,6 +51,7 @@ const reducer = (state = intialState, action) => {
         ...state,
         loading: false,
       };
+    default:
       return state;
   }
 };
